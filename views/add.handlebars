@@ -1,0 +1,50 @@
+<div id="add-form-container" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">
+        Preencha o formulário de cadastro
+      </h1>
+    </div>
+    <div id="form-box" class="col-md-12">
+      <h2 class="text-center">
+        Cadastre os dados com atenção para evitar problemas posteriores.
+      </h2>
+      <form action="/vips/add" method="post">
+        <div class="form-group">
+          <label for="name">Nome do cliente:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Digite aqui o nome completo do cliente..."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="rg">Insira o seu documento de rg:</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="rg"
+            name="rg"
+            placeholder="Por favor, insira apenas números."
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="desconto">Desconto oferecido:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="desconto"
+            name="desconto"
+            placeholder="Aqui entra o valor em porcentagem"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
