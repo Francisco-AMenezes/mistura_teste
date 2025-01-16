@@ -9,12 +9,13 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="./public/css/styles.css" />
+    <script src="/index.js"></script>
   </head>
   <body>
     <header>
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Vips Mistura feminina</a>
+        <a class="navbar-brand" href="/index.html">Vips Mistura feminina</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -32,13 +33,17 @@
               <a class="nav-link" href="/">Ver todos os clientes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-primary" href="/vips/add">Cadastrar Vip</a>
+              <a class="nav-link btn btn-primary" href="/add.html">Cadastrar Vip</a>
             </li>
           </ul>
         </div>
       </nav>
-    </header>
-    {{{body}}}
+    
+    <main class="container mt-5">
+      <div id="client-details">
+        <!-- Detalhes do cliente serão carregados aqui -->
+      </div>
+    </main>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
