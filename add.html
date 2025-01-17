@@ -96,6 +96,48 @@
         </div>
       </div>
     </main>
+    <script>document
+      .getElementById("add-form")
+      .addEventListener("submit", async function (event) {
+        event.preventDefault();
+    
+        //pegando os valores do form
+        const name = document.getElementById("name").value;
+        const rg = document.getElementById("rg").value;
+        const disc = document.getElementById("disc").value;
+        const image = document.getElementById("image").value;
+    
+        try {
+          //envia os dados pra api via post
+          const response = await fetch("https://misturafeminina.com.br/vip.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ rg, name, disc, image }),
+          });
+    
+          const result = await response.json();
+    
+          // exibição da resposta do servidor
+          const responseMessage = document.getElementById("response-message");
+          if (response.ok) {
+            responseMessage.innerHTML = `<div class="alert alert-success">${
+              result.success || "Cadastro realizado com sucesso!"
+            }</div>`;
+          } else {
+            responseMessage.innerHTML = `<div class="alert alert-danger">${
+              result.error || "Erro ao cadastrar."
+            }</div>`;
+          }
+        } catch (err) {
+          console.error("Erro na requisição:", err);
+          document.getElementById(
+            "response-message"
+          ).innerHTML = `<div class="alert alert-danger">Erro na comunicação com o servidor.</div>`;
+        }
+      });
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <h2>${client.name}</h2>
         <p><strong>RG:</strong> ${client.rg}</p>
         <p><strong>Desconto:</strong> ${client.disc}%</p>
+         <p><strong>Foto</strong> ${client.image}%</p>
       </div>`;
   } catch (error) {
     console.error("Erro ao buscar dados do cliente:", error);
@@ -45,45 +46,3 @@ document.addEventListener("DOMContentLoaded", async () => {
       </div>`;
   }
 });
-
-document
-  .getElementById("add-form")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    //pegando os valores do form
-    const name = document.getElementById("name").value;
-    const rg = document.getElementById("rg").value;
-    const disc = document.getElementById("disc").value;
-    const image = document.getElementById("image").value;
-
-    try {
-      //envia os dados pra api via post
-      const response = await fetch("https://misturafeminina.com.br/vip.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ rg, name, disc, image }),
-      });
-
-      const result = await response.json();
-
-      // exibição da resposta do servidor
-      const responseMessage = document.getElementById("response-message");
-      if (response.ok) {
-        responseMessage.innerHTML = `<div class="alert alert-success">${
-          result.success || "Cadastro realizado com sucesso!"
-        }</div>`;
-      } else {
-        responseMessage.innerHTML = `<div class="alert alert-danger">${
-          result.error || "Erro ao cadastrar."
-        }</div>`;
-      }
-    } catch (err) {
-      console.error("Erro na requisição:", err);
-      document.getElementById(
-        "response-message"
-      ).innerHTML = `<div class="alert alert-danger">Erro na comunicação com o servidor.</div>`;
-    }
-  });

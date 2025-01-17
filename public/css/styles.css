@@ -194,11 +194,11 @@
 
 /* job view */
 
-#job-view-container {
+#client-details {
   margin-top: 100px;
 }
 
-#job-view-container h1 {
+#client-details h1 {
   margin-bottom: 30px;
 }
 
